@@ -1,13 +1,27 @@
 #Functions's purpose: read in a file name from the user and return it once they give one that exists
 #Parameters: None
 #Return: file name
-
+Set validInput equal to false
+While not validInput:
+    try:
+        set filename equal to input from the user
+        open the file with name filename for reading and assign to file
+        return file
+    except:
+        print "Sorry, that wasn't a valid file."
 
 
 
 #Function's purpose: Process the file
 #Parameters: file name of file to read from
 #Return: The maximum profit
+with open(filename, "r") as file:
+    maxGross = 0
+    for line in file:
+        date, title, budget, gross = line.split(",")
+        if gross is greater than maxGross
+            set maxGross equal to gross
+return maxGross
 
 
 
@@ -15,9 +29,13 @@
 #Function's purpose: Process the file
 #Parameters: file name of file to read from, file name of file to write to
 #Return: None
-
-
-
+readFile = open(readFile, "r")
+writeFile = open(writeFile, "w")
+for line in readFile:
+    date, title, budget, gross = line.strip().split(",")
+    print(date, title, gross, sep=",", file=writeFile)
+readFile.close()
+writeFile.close()
 
 #Function's purpose: main
 #Parameters: None
