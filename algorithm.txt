@@ -5,25 +5,37 @@ Set validInput equal to false
 While not validInput:
     try:
         set filename equal to input from the user
-        open the file with name filename for reading and assign to file
-        return file
+        open the file with name filename for reading
+        return filename
     except:
         print "Sorry, that wasn't a valid file."
 
 
 
-#Function's purpose: Process the file
+#Function's purpose: calculate the maximum profit
 #Parameters: file name of file to read from
 #Return: The maximum profit
 with open(filename, "r") as file:
-    maxGross = 0
+    maxProfit = 0
     for line in file:
         date, title, budget, gross = line.split(",")
-        if gross is greater than maxGross
-            set maxGross equal to gross
-return maxGross
+        profit = float(gross) - float(budget)
+        if profit is greater than maxProfit
+            set maxProfit equal to profit
+return maxProfit
 
-
+#Function's purpose: calculate the title of the movie with the maximum profif
+#Parameters: file name of file to read from
+#Return: The title of the movie with the maximum profit
+with open(filename, "r") as file:
+    maxProfit = 0
+    for line in file:
+        date, title, budget, gross = line.strip().split(",")
+        profit = float(gross)-float(budget)
+        if profit is greater than maxProfit:
+            maxProfit = profit
+            maxTitle = title
+return maxTitle
 
 
 #Function's purpose: Process the file
@@ -40,3 +52,8 @@ writeFile.close()
 #Function's purpose: main
 #Parameters: None
 #Return: None
+Introduce the program.
+Ask the user for a file name and check using the checkFile function.
+Use the maximumProfit and maximumTitle functions to get the information about the movie with the maximum profit.
+Display the results.
+Ask the user for a file to output to and use the processFile function to print the information there.
